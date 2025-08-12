@@ -3,7 +3,7 @@
 <html lang="es">
 
 <head>
-    <link rel="icon" href="/img/MAS.ico">
+    <link rel="icon" href="/img/discosheavenicon.jpg">
     <title> Discos Heaven </title>
     <link rel="stylesheet" href="/css/inicio.css">
     <script src="https://kit.fontawesome.com/fd9bb0cd18.js" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@
 
     <div class="logo-title-vertical">
       <a href="/">
-        <img src="/img/masmusica.gif" alt="+ Música" class="logo">
+        <img src="/img/discosheaven.gif" alt="discosheaven" class="logo">
       </a>
     </div>
 
@@ -30,11 +30,25 @@
       <div class="buscar-header">
         <input type="text" id="busqueda" placeholder="Buscar por título o artista...">
       </div>
-      <nav class="menu-right">
-        <a href="#"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i> Mis Compras</a>
-      </nav>
       
+      <nav class="menu-right">
+        <a href="#" id="miCuenta"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
+        <a href="#" id="carritoBtn" class="carrito-link">
+          <i class="fa-solid fa-cart-shopping"></i> Mis Compras
+          <span id="carritoContador" class="carrito-contador">0</span>
+        </a>
+      </nav>
+
+      <!-- Modal carrito -->
+      <div id="modalCarrito" style="display:none; position: fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+        <div style="background:#fff; padding:20px; border-radius:8px; max-width: 400px; width: 90%; max-height: 80vh; overflow-y: auto;">
+          <div style="margin-top:10px; font-size: 20px; padding-top:10px; font-weight:bold;"> MI CARRITO </div>
+          <div id="carritoItems"></div>
+          <div id="subtotalCarrito" style="margin-top: 15px; font-weight: bold; font-size: 18px;"></div>
+            <button id="cerrarCarrito" style="margin-top: 15px;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
@@ -68,6 +82,8 @@
 </footer>
 
 <script src="/js/inicio.js"></script>
+
+<div id="mensajeFlotante" class="mensaje-flotante"></div>
 
 </body>
 

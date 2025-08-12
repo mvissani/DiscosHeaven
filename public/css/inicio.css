@@ -130,6 +130,167 @@ html, body {
   outline-offset: 2px;
 }
 
+#modalCarrito {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Contenedor del carrito dentro del modal */
+#modalCarrito > div {
+  text-align: center;
+  color: black;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 100%;
+  padding: 25px 30px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+/* Botón cerrar */
+#cerrarCarrito {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+#cerrarCarrito:hover {
+  color: #000;
+}
+
+/* Items del carrito */
+#carritoItems .item-carrito {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+#carritoItems .item-carrito img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#carritoItems .item-carrito div {
+  flex: 1;
+}
+
+#carritoItems .item-carrito p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+#carritoItems .item-carrito button.eliminarBtn {
+  background: #e74c3c;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#carritoItems .item-carrito button.eliminarBtn:hover {
+  background: #c0392b;
+}
+
+/* Si el carrito está vacío */
+#carritoItems:empty {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 30px 0;
+}
+
+/* Contador carrito */
+#carritoContador {
+  color: #00ff99;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  position: absolute;
+  top: -15px;
+  right: 80px;
+  display: none;
+}
+
+.mensaje-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+}
+
+.mensaje-flotante.visible {
+  opacity: 1;
+}
+
+.cantidadInput {
+  height: 16px;
+  width: 30px;
+}
+
+.carrito-modal {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: rgb(255, 251, 226);
+  border: 1px solid #ccc;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 10000;
+  border-radius: 8px;
+}
+
+.carrito-modal h3 {
+  margin-top: 0;
+}
+
+#lista-carrito {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#lista-carrito li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
 /* BODY */
 
 body {
@@ -140,6 +301,8 @@ body {
 
 main {
   flex: 1 0 auto;
+  background-image: url("/img/fondo.jpeg");
+  background-size: 50px;
 }
 
 .disco .titulo,
@@ -157,7 +320,7 @@ main {
   white-space: normal;
   max-width: 95%;
   text-align: center;
-  word-break: break-word; /* para que no se desborde en palabras largas */
+  word-break: break-word;
 }
 
 .tit-reco {
@@ -170,11 +333,6 @@ main {
     display: flex;
     justify-content: space-around;
     text-align: center;
-}
-
-main {
-    background-image: url("/img/fondo.jpeg");
-    background-size: 50px;
 }
 
 .detalles {
@@ -213,7 +371,7 @@ main {
 
 .contenido {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr); /* 6 discos por fila */
     gap: 24px;
     padding: 20px;
     margin: 0 12px;
@@ -379,12 +537,12 @@ input#busqueda {
 
 .menu ul li { 
   list-style: none;
-	text-align:center;
-	font-family: Verdadna, Arial, Helvetica;
-    color:#369;
-	text-transform:none;
-	font-weight:bold;
-    padding-top: 20px;
+  text-align:center;
+  font-family: Verdana, Arial, Helvetica;
+  color:#369;
+  text-transform:none;
+  font-weight:bold;
+  padding-top: 20px;
 }
 
 .menu ul li a {
@@ -394,50 +552,117 @@ input#busqueda {
 
 /* FOOTER */
 
-.pie {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+footer {
+  background: linear-gradient(135deg, #1e1f29, #2e2f3e);
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
-/* HOVER */
-
-#inicio:hover {
-    color: rgb(120, 120, 224);
+.lineasup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
 }
 
-#productos:hover {
-    color: rgb(120, 120, 224);
+.pays {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-#ofertas:hover {
-    color: rgb(120, 120, 224);
+.redess {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-#recomendaciones:hover {
-    color: rgb(120, 120, 224);
+.lineainferior {
+  text-align: center;
+  color: #ccc;
 }
 
-#populares:hover {
-    color: rgb(120, 120, 224);
+.pays i,
+.redess a {
+  color: white;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+  text-decoration: none;
 }
 
+.redess a:hover,
+.pays i:hover {
+  color: #2fc7ff;
+}
+
+/* CARRITO */
+
+/* Contador en carrito */
+.carrito-link {
+  position: relative;
+  display: inline-block;
+}
+
+.carrito-contador {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: none; /* Oculto por defecto */
+}
+
+/* Modal fondo */
+.modal-carrito {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal contenido */
+.modal-contenido {
+  background: #CFCFCF;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Botón cerrar */
+.btn-cerrar {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Hover efectos */
+
+#inicio:hover,
+#productos:hover,
+#ofertas:hover,
+#recomendaciones:hover,
+#populares:hover,
 #cerrar:hover {
     color: rgb(120, 120, 224);
 }
 
-#micuenta:hover {
-    color: rgb(19, 19, 215);
-}
-
-.carrito:hover {
-    color: rgb(19, 19, 215);
-}
-
-#button-menu:hover {
-    color: rgb(19, 19, 215);
-}
-
+#micuenta:hover,
+.carrito:hover,
+#button-menu:hover,
 .micuenta:hover {
     color: rgb(19, 19, 215);
 }
@@ -518,53 +743,3 @@ input#busqueda {
     max-width: 340px;
   }
 }
-
-/* FOOTER */
-
-footer {
-  background: linear-gradient(135deg, #1e1f29, #2e2f3e);
-  color: white;
-  padding: 10px 20px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-.lineasup {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.pays {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.redess {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.lineainferior {
-  text-align: center;
-  color: #ccc;
-}
-
-.pays i,
-.redess a {
-  color: white;
-  font-size: 1.3rem;
-  transition: color 0.3s;
-  text-decoration: no;
-}
-
-.redess a:hover,
-.pays i:hover {
-  color: #2fc7ff;
-}
-
-
