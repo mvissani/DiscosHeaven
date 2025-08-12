@@ -1,0 +1,570 @@
+/* GENERAL */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* HEADER */
+
+.buscar-header {
+  display: flex;
+  align-items: center; 
+}
+
+.buscar-header input#busqueda {
+  width: 220px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+}
+
+.logo-title-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 60px;
+  display: block;
+  margin: 0;
+}
+
+.logo-title-vertical a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  height: 90px; 
+  text-decoration: none; 
+}
+
+.site-header {
+  background: linear-gradient(135deg, #1e1f29, #2e2f3e);
+  color: white;
+  padding: 0px 20px; 
+  height: 100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-inner a {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  transition: color 0.3s;
+  white-space: nowrap; 
+}
+
+.header-inner a:hover {
+  color: #2fc7ff;
+}
+
+.menu-right {
+  align-items: center;
+}
+
+.menu-right-contenedor {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-left, .menu-right {
+  display: flex;
+  gap: 46px;
+  align-items: center;
+}
+
+.menu-left a, .menu-right a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.menu-left a:hover, .menu-right a:hover {
+  color: #007cac;
+  transform: scale(1.05);
+}
+
+.header-inner a i {
+  font-size: 1rem;
+}
+
+#busqueda {
+  width: 200px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+}
+
+.buscar-header input#busqueda {
+  width: 220px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+}
+
+/* BODY */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.disco .titulo,
+.disco .artista,
+.disco .detalles p,
+.disco .precio,
+.disco .totalcanciones,
+.disco .año {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;  
+  line-clamp: 2; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  max-width: 95%;
+  text-align: center;
+  word-break: break-word; /* para que no se desborde en palabras largas */
+}
+
+.tit-reco {
+    text-align: center;
+    color: aqua;
+    size: 30px;
+}
+
+.recomendados {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+main {
+    background-image: url("/img/fondo.jpeg");
+    background-size: 50px;
+}
+
+.detalles {
+  display: none;
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.logo {
+    height: 100px;
+    margin-top: 10px;
+}
+
+.buscar {
+    margin-top: 20px;
+}
+
+#button-menu {
+    text-align: center;
+}
+
+.opciones {
+    display: none;
+}
+
+.opciones-muestra {
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    padding: 20px;
+    margin: 0 12px;
+    justify-items: center;
+    align-items: start;
+    text-align: center;
+}
+
+.portada {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 4px auto;
+    border-radius: 10px;
+}
+
+.titulo {
+    font-size: 14px; 
+    font-family: "Times New Roman"; 
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+    min-height: 2em;
+    max-width: 95%;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#artista {
+    font-size: 14px; 
+    font-family: "Times New Roman"; 
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 95%;
+}
+
+.spotify {
+    font-size: 24px;
+    color: #1ED760;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin: 4px 0;
+}
+
+.spotify:visited,
+.spotify:active,
+.spotify:focus,
+.spotify:hover {
+  text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+input#busqueda {
+    width: 200px;
+    height: 12px;
+    border-radius: 10px;
+}
+
+.boton-buscar {
+    width: 30px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 6px;
+}
+
+.audio {
+    margin-top: 10px;
+}
+
+#precio {
+    font-size: 16px;
+    font-family: "Times New Roman"; 
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#totalcanciones {
+    font-size: 16px; 
+    font-family: "Times New Roman"; 
+    text-align: center;
+    margin-top: 10px;
+}
+
+#año {
+    font-size: 16px; 
+    font-family: "Times New Roman"; 
+    text-align: center;
+    margin-top: 10px;
+}
+
+.disco {
+  width: 220px;
+  min-height: none;
+  max-height: 600px;
+  box-sizing: border-box;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fffef0;
+  border-radius: 18px;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s, min-height 0.3s;
+  box-shadow: none;
+  cursor: pointer;
+  position: relative;
+  margin: 10px 0;
+  padding: 10px 6px 12px 6px;
+}
+
+#comprar, .comprar {
+  margin: 8px auto 6px auto;
+  border-radius: 6px;
+  border: none;
+  background-color: #00b3ff;
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: bold;
+  padding: 10px 28px;
+  box-shadow: 0 2px 8px rgba(30,215,96,0.08);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  display: block;
+  text-align: center;
+}
+
+#comprar:hover, .comprar:hover {
+  background-color: #17b957;
+  box-shadow: 0 4px 16px rgba(30,215,96,0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.menu.is_active {
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.menu {
+   background-color: rgba(255, 255, 255, 0.95);
+    bottom: 0;
+    height: 380px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transform: translate3d(0px, -100%, 0px);
+    transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+    width: 100%;
+    z-index: 1001;
+}
+
+.menu ul li { 
+  list-style: none;
+	text-align:center;
+	font-family: Verdadna, Arial, Helvetica;
+    color:#369;
+	text-transform:none;
+	font-weight:bold;
+    padding-top: 20px;
+}
+
+.menu ul li a {
+  text-decoration:none;
+  color:#369;
+}
+
+/* FOOTER */
+
+.pie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HOVER */
+
+#inicio:hover {
+    color: rgb(120, 120, 224);
+}
+
+#productos:hover {
+    color: rgb(120, 120, 224);
+}
+
+#ofertas:hover {
+    color: rgb(120, 120, 224);
+}
+
+#recomendaciones:hover {
+    color: rgb(120, 120, 224);
+}
+
+#populares:hover {
+    color: rgb(120, 120, 224);
+}
+
+#cerrar:hover {
+    color: rgb(120, 120, 224);
+}
+
+#micuenta:hover {
+    color: rgb(19, 19, 215);
+}
+
+.carrito:hover {
+    color: rgb(19, 19, 215);
+}
+
+#button-menu:hover {
+    color: rgb(19, 19, 215);
+}
+
+.micuenta:hover {
+    color: rgb(19, 19, 215);
+}
+
+#comprar:hover {
+    background-color: rgba(56, 136, 56, 0.703);
+}
+
+.boton-buscar:hover {
+    color: #15ff00;
+}
+
+.disco.activo {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 4px 24px rgba(0,0,0,0.10);
+  background: #fffbe6;
+  border: 2px solid #e0e0e0;
+  transform: scale(1.04) translateY(-4px);
+  filter: brightness(1.07) saturate(1.05);
+  transition: all 0.3s;
+}
+
+.disco.activo .detalles {
+  display: block;
+  margin-top: 10px;
+}
+
+.disco .titulo {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 3px 0 2px 0;
+  text-align: center;
+  word-break: break-word;
+  white-space: normal;
+  min-height: 2em;
+  max-width: 95%;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disco .artista {
+  font-size: 16px;
+  margin: 0 0 6px 0;
+  text-align: center;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 95%;
+}
+
+.disco .detalles p,
+.disco .precio,
+.disco .totalcanciones,
+.disco .año {
+  font-size: 1rem;
+  margin: 2px 0;
+  text-align: center;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 95%;
+}
+
+.disco .spotify {
+  display: flex;
+  justify-content: center;
+  margin: 2px 0;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .contenido {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .disco {
+    width: 95vw;
+    min-width: 180px;
+    max-width: 340px;
+  }
+}
+
+/* FOOTER */
+
+footer {
+  background: linear-gradient(135deg, #1e1f29, #2e2f3e);
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.lineasup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.pays {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.redess {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.lineainferior {
+  text-align: center;
+  color: #ccc;
+}
+
+.pays i,
+.redess a {
+  color: white;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+  text-decoration: no;
+}
+
+.redess a:hover,
+.pays i:hover {
+  color: #2fc7ff;
+}
+
+
