@@ -359,7 +359,68 @@ window.onload = function () {
     precio: "4000",
     canciones: 12,
     año: 2012
-  }
+  },
+  {
+    id: 30,
+    img: "/img/POP-M.jpg",
+    titulo: "PRINCESS OF POWER",
+    color: "rgba(80, 179, 139, 1)",
+    artista: "MARINA",
+    spotifyId: "linkpop",
+    spotifyUrl: "https://open.spotify.com/album/2rjfRdmVDBMFT5mamSsVeU",
+    precio: "10000",
+    canciones: 13,
+    año: 2025
+  },
+  {
+    id: 31,
+    img: "/img/ES-AG.jpg",
+    titulo: "ETERNAL SUNSHINE",
+    color: "rgba(180, 33, 13, 1)",
+    artista: "ARIANA GRANDE",
+    spotifyId: "linkes",
+    spotifyUrl: "https://open.spotify.com/album/5EYKrEDnKhhcNxGedaRQeK",
+    precio: "10000",
+    canciones: 13,
+    año: 2024
+  },
+  {
+    id: 32,
+    img: "/img/RO-DL.jpg",
+    titulo: "RADICAL OPTIMISM",
+    color: "rgba(126, 248, 250, 1)",
+    artista: "DUA LIPA",
+    spotifyId: "linkro",
+    spotifyUrl: "https://open.spotify.com/album/1Mo92916G2mmG7ajpmSVrc",
+    precio: "10000",
+    canciones: 11,
+    año: 2024
+  },
+  {
+    id: 33,
+    img: "/img/BELE-I.jpg",
+    titulo: "BESOS EN LA ESPALDA",
+    color: "rgba(255, 149, 225, 1)",
+    artista: "INDIOS",
+    spotifyId: "linkbele",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2019
+  },
+  {
+    id: 34,
+    img: "/img/EBB-BC.jpg",
+    titulo: "EL BIG BLUE",
+    color: "rgba(88, 202, 255, 1)",
+    artista: "BANDALOS CHINOS",
+    spotifyId: "linkebb",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+
 ];
 
 // Elementos DOM
