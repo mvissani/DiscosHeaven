@@ -8,9 +8,22 @@ router.use(express.static("public"))
 
 // RUTAS
 
+// Inicio
 router.get("/", (req, res) =>
 {
 res.sendFile(path.join(__dirname, "../views/inicio.html"));
+})
+
+// Mi Cuenta
+router.get("/mi-cuenta", (req, res) =>
+{
+res.sendFile(path.join(__dirname, "../views/micuenta.html"));
+})
+
+// Productos
+router.get("/productos", (req, res) =>
+{
+res.sendFile(path.join(__dirname, "../views/productos.html"));
 })
 
 // EXPORTAR MODULO

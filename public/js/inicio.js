@@ -431,50 +431,71 @@ window.onload = function () {
   const cerrarCarrito = document.getElementById('cerrarCarrito');
   const contador = document.getElementById('carritoContador');
 
+// Obtener referencias
+const inputBusqueda = document.getElementById("busqueda");
+const contenedorDiscos = document.getElementById("contenedor-discos");
+
+// Evento de búsqueda en tiempo real
+inputBusqueda.addEventListener("input", () => {
+    const termino = inputBusqueda.value.toLowerCase();
+
+    // Filtrar discos por título o artista
+    const discosFiltrados = discos.filter(disco =>
+        disco.titulo.toLowerCase().includes(termino) ||
+        disco.artista.toLowerCase().includes(termino)
+    );
+
+    // Renderizar solo los discos filtrados
+    mostrarDiscos(discosFiltrados);
+});
+
   // Carrito
   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
   // Renderizar discos y asignar eventos
-  function renderizarDiscos() {
-    contenedor.innerHTML = discos.map(disco => `
-      <div class="disco" data-id="${disco.id}">
-        <img class="portada" src="${disco.img}" alt="${disco.titulo}">
-        <p class="titulo" style="color: ${disco.color}">${disco.titulo}</p>
-        <p class="artista"><strong>${disco.artista}</strong></p>
-        <a class="spotify" href="${disco.spotifyUrl}" target="_blank" rel="noopener">
-          <i class="fa-brands fa-spotify"></i>
-        </a>
-        <span class="detalles" style="display:none;">
-          <p class="precio">$${disco.precio.toLocaleString()}</p>
-          <p class="totalcanciones">Cantidad de canciones: ${disco.canciones}</p>
-          <p class="año">Año: ${disco.año}</p>
-          <button class="comprar">Comprar</button>
-        </span>
-      </div>
-    `).join('');
+  function mostrarDiscos(listaDiscos) {
+  contenedor.innerHTML = listaDiscos.map(disco => `
+    <div class="disco" data-id="${disco.id}">
+      <img class="portada" src="${disco.img}" alt="${disco.titulo}">
+      <p class="titulo" style="color: ${disco.color}">${disco.titulo}</p>
+      <p class="artista"><strong>${disco.artista}</strong></p>
+      <a class="spotify" href="${disco.spotifyUrl}" target="_blank" rel="noopener">
+        <i class="fa-brands fa-spotify"></i>
+      </a>
+      <span class="detalles" style="display:none;">
+        <p class="precio">$${disco.precio.toLocaleString()}</p>
+        <p class="totalcanciones">Cantidad de canciones: ${disco.canciones}</p>
+        <p class="año">Año: ${disco.año}</p>
+        <button class="comprar">Comprar</button>
+      </span>
+    </div>
+  `).join('');
 
-    // Eventos para mostrar detalles al click
-    contenedor.querySelectorAll('.disco').forEach(discoDiv => {
-      discoDiv.addEventListener('click', e => {
-        if (e.target.classList.contains('comprar') || e.target.classList.contains('fa-spotify')) return;
-        contenedor.querySelectorAll('.disco').forEach(d => {
-          d.classList.remove('activo');
-          d.querySelector('.detalles').style.display = 'none';
-        });
-        discoDiv.classList.add('activo');
-        discoDiv.querySelector('.detalles').style.display = 'block';
+    // Reasignar eventos para mostrar detalles al click
+  contenedor.querySelectorAll('.disco').forEach(discoDiv => {
+    discoDiv.addEventListener('click', e => {
+      if (e.target.classList.contains('comprar') || e.target.classList.contains('fa-spotify')) return;
+      contenedor.querySelectorAll('.disco').forEach(d => {
+        d.classList.remove('activo');
+        d.querySelector('.detalles').style.display = 'none';
       });
+      discoDiv.classList.add('activo');
+      discoDiv.querySelector('.detalles').style.display = 'block';
     });
+  });
 
-    // Doble click en imagen cierra detalles
-    contenedor.querySelectorAll('.disco .portada').forEach(img => {
-      img.addEventListener('dblclick', e => {
-        const discoDiv = e.target.closest('.disco');
-        discoDiv.classList.remove('activo');
-        discoDiv.querySelector('.detalles').style.display = 'none';
-      });
+  // Doble click en imagen cierra detalles
+  contenedor.querySelectorAll('.disco .portada').forEach(img => {
+    img.addEventListener('dblclick', e => {
+      const discoDiv = e.target.closest('.disco');
+      discoDiv.classList.remove('activo');
+      discoDiv.querySelector('.detalles').style.display = 'none';
     });
-  }
+  });
+}
+
+  // Cambia esta línea para usar mostrarDiscos:
+  mostrarDiscos(discos);
 
   function guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -582,7 +603,7 @@ carritoItems.addEventListener('input', e => {
     }
     guardarCarrito();
     actualizarContador();
-    mostrarMensaje(`"${disco.titulo}" se agrego correctamente al carrito`);
+    mostrarMensaje(`"${disco.titulo}" se agregó correctamente al carrito!`);
   }
 
   function eliminarDelCarrito(id) {
@@ -642,6 +663,6 @@ carritoItems.addEventListener('input', e => {
   });
 
   // Inicializar
-  renderizarDiscos();
+  mostrarDiscos(discos);
   actualizarContador();
 };
