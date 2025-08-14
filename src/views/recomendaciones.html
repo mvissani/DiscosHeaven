@@ -9,7 +9,7 @@
   <title> Discos Heaven </title>
   <!-- Hojas de Estilo -->
   <link rel="stylesheet" href="/css/general.css">
-  <link rel="stylesheet" href="/css/inicio.css">
+  <link rel="stylesheet" href="/css/recomendaciones.css">
   <!-- Iconos -->
   <script src="https://kit.fontawesome.com/fd9bb0cd18.js" crossorigin="anonymous"></script>
 </head>
@@ -32,20 +32,20 @@
           <img src="/img/discosheaven.gif" alt="discosheaven" class="logo">
         </a>
       </div>
-
+      
       <!-- Buscador -->
       <div class="menu-right-contenedor">
         <div class="buscar-header">
           <input type="text" id="busqueda" placeholder="Buscar por disco o artista">
         </div>
-
+        
         <!-- Menu Derecho -->
         <nav class="menu-right">
           <a href="/mi-cuenta" id="miCuenta"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
           <a href="/mi-carrito" id="carritoBtn" class="carrito-link">
             <span class="carrito-icono">
               <i class="fa-solid fa-cart-shopping"></i>
-              <span id="carritoContador" class="carrito-contador">0</span>
+              <span id="carritoContador" class="carrito-contador"></span>
             </span>
             Mis Compras
           </a>
@@ -66,17 +66,11 @@
 
   <!-- Main -->
   <main>
-    <div class="carrusel-centrado">
-      <button id="izquierda" class="flecha"><i class="fa-solid fa-arrow-left"></i></button>
-      <div class="carrete-wrapper">
-        <div class="carrete" id="carrete"></div>
-      </div>
-      <button id="derecha" class="flecha"><i class="fa-solid fa-arrow-right"></i></button>
-    </div>
+    
   </main>
 
   <!-- Footer -->
-   <footer>
+  <footer>
     <div class="lineasup">
       <!-- Formas de Pago -->
       <div class="pays">
@@ -85,7 +79,7 @@
         <i class="fa-brands fa-cc-amex"></i>
         <i class="fa-brands fa-paypal"></i>
       </div>
-      
+            
       <!-- Copyright -->
       <div class="lineainferior">
         <p>© 2022 Discos Heaven. Todos los derechos reservados.</p>
@@ -105,7 +99,7 @@
   <div id="mensajeFlotante" class="mensaje-flotante"></div>
 
   <!-- Scripts --> 
-  <script src="/js/inicio.js"></script>
+  <script src="/js/recomendaciones.js"></script>
   <script src="/js/general.js"></script>
 </body>
 

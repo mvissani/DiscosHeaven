@@ -26,6 +26,33 @@ router.get("/productos", (req, res) =>
 res.sendFile(path.join(__dirname, "../views/productos.html"));
 })
 
+// Carrito
+router.get("/mi-carrito", (req, res) =>
+{
+res.sendFile(path.join(__dirname, "../views/carrito.html"));
+})
+
+// Ofertas
+
+router.get("/ofertas", (req, res) =>
+{
+res.sendFile(path.join(__dirname, "../views/ofertas.html"));
+})
+
+// Populares
+
+router.get("/populares", (req, res) =>
+{
+res.sendFile(path.join(__dirname, "../views/populares.html"));
+})
+
+// Recomendaciones
+
+router.get("/recomendaciones", (req, res) =>
+{
+res.sendFile(path.join(__dirname, "../views/recomendaciones.html"));
+})
+
 // EXPORTAR MODULO
 
 module.exports = router

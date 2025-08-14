@@ -3,16 +3,22 @@
 <html lang="en">
 
 <head>
+  <!-- Icono -->
   <link rel="icon" href="/img/discosheavenicon.jpg">
+  <!-- Nombre de la Pagina -->
   <title> Discos Heaven </title>
+  <!-- Hojas de Estilo -->
   <link rel="stylesheet" href="/css/general.css">
-  <link rel="stylesheet" href="/css/inicio.css">
+  <link rel="stylesheet" href="/css/productos.css">
+  <!-- Iconos -->
   <script src="https://kit.fontawesome.com/fd9bb0cd18.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
+      <!-- Menu Izquierdo -->
       <nav class="menu-left">
         <a href="/productos"><i class="fa-solid fa-music"></i> Productos</a>
         <a href="/ofertas"><i class="fa-solid fa-bolt"></i> Ofertas</a>
@@ -20,24 +26,32 @@
         <a href="/populares"><i class="fa-solid fa-list-ol"></i> Populares</a>
       </nav>
 
+      <!-- Logo -->
       <div class="logo-title-vertical">
         <a href="/">
           <img src="/img/discosheaven.gif" alt="discosheaven" class="logo">
         </a>
       </div>
 
+      <!-- Buscador -->
       <div class="menu-right-contenedor">
         <div class="buscar-header">
-          <input type="text" id="busqueda" placeholder="Buscá por disco o artista">
+          <input type="text" id="busqueda" placeholder="Buscar por disco o artista">
         </div>
+        
+        <!-- Menu Derecho -->
         <nav class="menu-right">
           <a href="/mi-cuenta" id="miCuenta"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
-          <a href="#" id="carritoBtn" class="carrito-link">
-            <i class="fa-solid fa-cart-shopping"></i> Mis Compras
-            <span id="carritoContador" class="carrito-contador"></span>
+          <a href="/mi-carrito" id="carritoBtn" class="carrito-link">
+            <span class="carrito-icono">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="carritoContador" class="carrito-contador">0</span>
+            </span>
+            Mis Compras
           </a>
         </nav>
 
+        <!-- Carrito -->
         <div id="modalCarrito" style="display:none; position: fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); justify-content:center; align-items:center;">
           <div style="background:#fff; padding:20px; border-radius:8px; max-width: 400px; width: 90%; max-height: 80vh; overflow-y: auto;">
             <div style="margin-top:10px; font-size: 20px; padding-top:10px; font-weight:bold;"> MI CARRITO </div>
@@ -50,14 +64,17 @@
     </div>
   </header>
 
+  <!-- Main -->
   <main>
     <section class="contenido" id="contenedor-discos">
       <!-- Los discos se agregan con JS -->
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="lineasup">
+      <!-- Formas de Pago -->
       <div class="pays">
         <i class="fa-brands fa-cc-visa"></i>
         <i class="fa-brands fa-cc-mastercard"></i>
@@ -65,10 +82,12 @@
         <i class="fa-brands fa-paypal"></i>
       </div>
             
+      <!-- Copyright -->
       <div class="lineainferior">
         <p>© 2022 Discos Heaven. Todos los derechos reservados.</p>
       </div>
 
+      <!-- Redes Sociales -->
       <div class="redess">
         <a href="https://www.facebook.com/discosheaven" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/discosheaven" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -78,10 +97,12 @@
     </div>
   </footer>
 
-  <script src="/js/inicio.js"></script>
-
+  <!-- Mensaje Flotante -->
   <div id="mensajeFlotante" class="mensaje-flotante"></div>
 
+  <!-- Scripts --> 
+  <script src="/js/productos.js"></script>
+  <script src="/js/general.js"></script>
 </body>
 
 </html>

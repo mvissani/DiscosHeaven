@@ -1,6 +1,5 @@
-window.onload = function () {
-  const discos = [
-      {
+const discos = [
+   {
     id: 0,
     img: "/img/TFJ-MATD.jpeg",
     titulo: "THE FAMILY JEWELS",
@@ -420,249 +419,97 @@ window.onload = function () {
     canciones: 12,
     año: 2022
   },
-
 ];
 
-// Elementos DOM
-  const contenedor = document.getElementById('contenedor-discos');
-  const carritoBtn = document.getElementById('carritoBtn');
-  const modalCarrito = document.getElementById('modalCarrito');
-  const carritoItems = document.getElementById('carritoItems');
-  const cerrarCarrito = document.getElementById('cerrarCarrito');
-  const contador = document.getElementById('carritoContador');
 
-// Obtener referencias
-const inputBusqueda = document.getElementById("busqueda");
-const contenedorDiscos = document.getElementById("contenedor-discos");
+// Codigo funcional 
 
-// Evento de búsqueda en tiempo real
-inputBusqueda.addEventListener("input", () => {
-    const termino = inputBusqueda.value.toLowerCase();
+const carreteWrapper = document.querySelector(".carrete-wrapper");
+const carrete = document.getElementById("carrete");
+const btnIzq = document.getElementById("izquierda");
+const btnDer = document.getElementById("derecha");
 
-    // Filtrar discos por título o artista
-    const discosFiltrados = discos.filter(disco =>
-        disco.titulo.toLowerCase().includes(termino) ||
-        disco.artista.toLowerCase().includes(termino)
-    );
-
-    // Renderizar solo los discos filtrados
-    mostrarDiscos(discosFiltrados);
-});
-
-  // Carrito
-  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-  // Renderizar discos y asignar eventos
-  function mostrarDiscos(listaDiscos) {
-  contenedor.innerHTML = listaDiscos.map(disco => `
-    <div class="disco" data-id="${disco.id}">
-      <img class="portada" src="${disco.img}" alt="${disco.titulo}">
-      <p class="titulo" style="color: ${disco.color}">${disco.titulo}</p>
-      <p class="artista"><strong>${disco.artista}</strong></p>
-      <a class="spotify" href="${disco.spotifyUrl}" target="_blank" rel="noopener">
-        <i class="fa-brands fa-spotify"></i>
-      </a>
-      <span class="detalles" style="display:none;">
-        <p class="precio">$${disco.precio.toLocaleString()}</p>
-        <p class="totalcanciones">Cantidad de canciones: ${disco.canciones}</p>
-        <p class="año">Año: ${disco.año}</p>
-        <button class="comprar">Comprar</button>
-      </span>
-    </div>
-  `).join('');
-
-    // Reasignar eventos para mostrar detalles al click
-  contenedor.querySelectorAll('.disco').forEach(discoDiv => {
-    discoDiv.addEventListener('click', e => {
-      if (e.target.classList.contains('comprar') || e.target.classList.contains('fa-spotify')) return;
-      contenedor.querySelectorAll('.disco').forEach(d => {
-        d.classList.remove('activo');
-        d.querySelector('.detalles').style.display = 'none';
-      });
-      discoDiv.classList.add('activo');
-      discoDiv.querySelector('.detalles').style.display = 'block';
-    });
-  });
-
-  // Doble click en imagen cierra detalles
-  contenedor.querySelectorAll('.disco .portada').forEach(img => {
-    img.addEventListener('dblclick', e => {
-      const discoDiv = e.target.closest('.disco');
-      discoDiv.classList.remove('activo');
-      discoDiv.querySelector('.detalles').style.display = 'none';
-    });
-  });
-}
-
-  // Cambia esta línea para usar mostrarDiscos:
-  mostrarDiscos(discos);
-
-  function guardarCarrito() {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-  }
-
-  function actualizarContador() {
-    let total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-    contador.style.display = total > 0 ? 'inline-block' : 'none';
-    contador.textContent = total;
-  }
-
-  function mostrarCarrito() {
-  if (carrito.length === 0) {
-    carritoItems.innerHTML = '<p>El carrito está vacío.</p>';
-    subtotalCarrito.textContent = "";
-    modalCarrito.style.display = 'flex'; // ocultamos contador si queda vacío
-    return;
-  }
-
-    carritoItems.innerHTML = carrito.map(item => `
-      <div class="item-carrito" style="border-bottom:1px solid #ccc; border-top: 1px solid #ccc; padding:10px 0; display: flex; align-items: center; gap: 10px;">
-        <img src="${item.img}" alt="${item.titulo}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 4px;">
-        <div>
-          <p>${item.titulo}</p> 
-          <p>${item.artista}</p>
-          <p>Precio: $${item.precio.toLocaleString()}</p>
-          <p>Cantidad: <input type="number" min="1" value="${item.cantidad}" class="cantidadInput" data-id="${item.id}"></p>
-          <button class="eliminarBtn" data-id="${item.id}">Eliminar</button>
-        </div>
-      </div>
-    `).join('');
-
-carritoItems.addEventListener('input', e => {
-  if (e.target.classList.contains('cantidadInput')) {
-    const id = Number(e.target.dataset.id);
-    const nuevaCantidad = Number(e.target.value);
-
-    if (nuevaCantidad < 1) {
-      // Evitar cantidad menor a 1
-      e.target.value = 1;
-      return;
-    }
-
-    // Actualizar la cantidad en el carrito
-    const item = carrito.find(item => item.id === id);
-    if (item) {
-      item.cantidad = nuevaCantidad;
-      guardarCarrito();
-      actualizarContador();
-      mostrarCarrito();
-    }
-  }
-});
-    
-    // Calcular subtotal
-    const subtotal = carrito.reduce(
-      (acc, item) => acc + item.precio * item.cantidad,
-      0
-    );
-
-    const cantidadTotal = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-
-    subtotalCarrito.innerHTML = `<p> CANTIDAD: ${cantidadTotal} </p>
-    <p> SUBTOTAL: $${subtotal.toLocaleString()}</p>`;
-
-    modalCarrito.style.display = "flex";
-  }
-
-  const totalCantidad = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-  const totalPrecio = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-
-  carritoItems.innerHTML += `
-    <div style="border-top:1px solid #ccc; margin-top:10px; padding-top:10px; font-weight:bold;">
-      Total items: ${totalCantidad} <br>
-      Total a pagar: $${totalPrecio.toLocaleString()}
+discos.forEach(disco => {
+  const div = document.createElement("div");
+  div.className = "disco";
+  div.innerHTML = `
+    <img src="${disco.img}" alt="${disco.titulo}">
+    <div class="disco-info">
+      <strong>${disco.titulo}</strong><br>
+      <em>${disco.artista}</em>
     </div>
   `;
+  carrete.appendChild(div);
+});
 
-  function mostrarMensaje(texto) {
-    const mensaje = document.getElementById('mensajeFlotante');
-    mensaje.textContent = texto;
-    mensaje.classList.add('visible');
-  
-    setTimeout(() => {
-      mensaje.classList.remove('visible');
-    }, 2000);
+let velocidad = 1;
+let isHover = false;
+
+// Duplicar discos para loop infinito
+carrete.innerHTML += carrete.innerHTML;
+
+// Auto-scroll
+function autoScroll() {
+  if (!isHover) {
+    carreteWrapper.scrollLeft += velocidad;
+
+    // Loop infinito
+    if (carreteWrapper.scrollLeft >= carrete.scrollWidth / 2) {
+      carreteWrapper.scrollLeft = 0;
+    }
   }
+  requestAnimationFrame(autoScroll);
+}
 
-  function agregarAlCarrito(id) {
-    const disco = discos.find(d => d.id === id);
-    if (!disco) return;
+// Pausar auto-scroll al interactuar
+carreteWrapper.addEventListener("mouseenter", () => isHover = true);
+carreteWrapper.addEventListener("mouseleave", () => isHover = false);
 
-    const itemExistente = carrito.find(item => item.id === id);
-    if (itemExistente) {
-      itemExistente.cantidad++;
+// Flechas
+izquierda.addEventListener("click", () => {
+  isHover = true;
+  carreteWrapper.scrollLeft -= carreteWrapper.clientWidth * 0.7;
+  if (carreteWrapper.scrollLeft < 0) {
+    carreteWrapper.scrollLeft += carrete.scrollWidth / 2;
+  }
+  setTimeout(() => isHover = false, 500);
+});
+
+derecha.addEventListener("click", () => {
+  isHover = true;
+  carreteWrapper.scrollLeft += carreteWrapper.clientWidth * 0.7;
+  if (carreteWrapper.scrollLeft >= carrete.scrollWidth / 2) {
+    carreteWrapper.scrollLeft = 0;
+  }
+  setTimeout(() => isHover = false, 500);
+});
+
+requestAnimationFrame(autoScroll);
+
+
+
+
+
+
+const wrapper = document.querySelector(".carrete-wrapper");
+//const discos = document.querySelectorAll(".disco");
+
+function actualizarActivo() {
+  const wrapperCenter = wrapper.scrollLeft + wrapper.offsetWidth / 2;
+
+  discos.forEach(disco => {
+    const discoCenter = disco.offsetLeft + disco.offsetWidth / 2;
+    const distancia = Math.abs(wrapperCenter - discoCenter);
+
+    if(distancia < disco.offsetWidth / 2) {
+      disco.classList.add("activo");
+      // Centrar el disco
+      wrapper.scrollTo({
+        left: disco.offsetLeft - (wrapper.offsetWidth/2 - disco.offsetWidth/2),
+        behavior: 'smooth'
+      });
     } else {
-      carrito.push({
-        id: disco.id,
-        titulo: disco.titulo,
-        artista: disco.artista,
-        precio: disco.precio,
-        img: disco.img,
-        cantidad: 1
-      });
-    }
-    guardarCarrito();
-    actualizarContador();
-    mostrarMensaje(`"${disco.titulo}" se agregó correctamente al carrito!`);
-  }
-
-  function eliminarDelCarrito(id) {
-    carrito = carrito.filter(item => item.id !== id);
-    guardarCarrito();
-    actualizarContador();
-    mostrarCarrito();
-  }
-
-  // Click en "Comprar"
-  contenedor.addEventListener('click', e => {
-    if (e.target.classList.contains('comprar')) {
-      const discoDiv = e.target.closest('.disco');
-      const id = Number(discoDiv.dataset.id);
-      agregarAlCarrito(id);
+      disco.classList.remove("activo");
     }
   });
-
-  // Abrir modal
-  carritoBtn.addEventListener('click', e => {
-    e.preventDefault();
-    mostrarCarrito();
-  });
-
-  // Cerrar modal
-  cerrarCarrito.addEventListener('click', () => {
-    modalCarrito.style.display = 'none';
-  });
-
-  cerrarCarrito.addEventListener('click', () => {
-    modalCarrito.style.display = 'none';
-    carritoItems.innerHTML = ''; // limpiar contenido
-  });
-
-  modalCarrito.addEventListener('click', e => {
-    if (e.target === modalCarrito) {
-      modalCarrito.style.display = 'none';
-    }
-  });
-
-  // Eliminar dentro del modal
-  carritoItems.addEventListener('click', e => {
-    if (e.target.classList.contains('eliminarBtn')) {
-      const id = Number(e.target.dataset.id);
-      eliminarDelCarrito(id);
-    }
-  });
-  
-  // Click afuera cierra detalles
-  document.addEventListener('click', e => {
-    if (!e.target.closest('.disco')) {
-      contenedor.querySelectorAll('.disco').forEach(d => {
-        d.classList.remove('activo');
-        d.querySelector('.detalles').style.display = 'none';
-      });
-    }
-  });
-
-  // Inicializar
-  mostrarDiscos(discos);
-  actualizarContador();
-};
+}
