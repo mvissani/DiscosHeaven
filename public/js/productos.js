@@ -374,7 +374,7 @@ window.onload = function () {
   },
   {
     id: 31,
-    img: "/img/ES-AG.JPG",
+    img: "/img/ES-AG.jpg",
     titulo: "ETERNAL SUNSHINE",
     color: "rgba(180, 33, 13, 1)",
     artista: "ARIANA GRANDE",
@@ -386,7 +386,7 @@ window.onload = function () {
   },
   {
     id: 32,
-    img: "/img/RO-DL.JPG",
+    img: "/img/RO-DL.jpg",
     titulo: "RADICAL OPTIMISM",
     color: "rgba(126, 248, 250, 1)",
     artista: "DUA LIPA",
