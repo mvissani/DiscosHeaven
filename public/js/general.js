@@ -420,6 +420,138 @@ window.onload = function () {
     canciones: 12,
     año: 2022
   },
+  {
+    id: 35,
+    img: "/img/TS-TS.jpg",
+    titulo: "TAYLOR SWIFT",
+    color: "rgba(224, 209, 100, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 36,
+    img: "/img/F-TS.jpg",
+    titulo: "TAYLOR SWIFT",
+    color: "rgba(224, 209, 100, 1)",
+    artista: "FEARLESS",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 37,
+    img: "/img/SN-TS.jpg",
+    titulo: "SPEAK NOW",
+    color: "rgba(149, 94, 145, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 38,
+    img: "/img/R-TS.jpg",
+    titulo: "RED",
+    color: "rgba(193, 49, 49, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 39,
+    img: "/img/1989-TS.jpg",
+    titulo: "1989",
+    color: "rgba(106, 220, 230, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 40,
+    img: "/img/REP-TS.jpg",
+    titulo: "REPUTATION",
+    color: "rgba(104, 102, 102, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 41,
+    img: "/img/L-TS.jpg",
+    titulo: "LOVER",
+    color: "rgba(252, 185, 245, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 42,
+    img: "/img/FOL-TS.jpg",
+    titulo: "FOLKLORE",
+    color: "rgba(172, 172, 172, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 43,
+    img: "/img/E-TS.jpg",
+    titulo: "EVERMORE",
+    color: "rgba(154, 82, 82, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+  {
+    id: 44,
+    img: "/img/TTPD-TS.jpg",
+    titulo: "THE TORTURED POETS DEPARTMENT",
+    color: "rgba(122, 117, 117, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
+   {
+    id: 45,
+    img: "/img/TLOAS-TS.jpg",
+    titulo: "THE LIFE OF A SHOWGIRL",
+    color: "rgba(69, 175, 154, 1)",
+    artista: "TAYLOR SWIFT",
+    spotifyId: "linkts",
+    spotifyUrl: "https://open.spotify.com/album/",
+    precio: "10000",
+    canciones: 12,
+    año: 2022
+  },
 
 ];
 
