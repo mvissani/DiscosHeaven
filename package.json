@@ -1,0 +1,19 @@
+{
+  "name": "discosheaven-main",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0",
+    "method-override": "^3.0.0",
+    "node": "^22.8.0",
+    "nodemon": "^3.1.4",
+    "override": "^0.0.1"
+  }
+}
